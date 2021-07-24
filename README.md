@@ -19,7 +19,7 @@ pip install git+https://github.com/butyr/pytorch-transformer.git
 
 ```python
 from transformer import Transformer
-import torch
+
 
 model = Transformer(
         vocab_size=25_000,
