@@ -33,17 +33,6 @@ model = Transformer(
 src_batch = # Tensor with shape (batch_size, src_sentence_length)
 tgt_batch = # Tensor with shape (batch_size, tgt_sentence_length)
 
-# outputs with teacher forcing
 outputs = model(src_batch, tgt_batch)
-
-# outputs without teacher forcing
-dummy_batch = torch.zeros((batch_size, tgt_sentence_length, vocab_size))
-
-for _ in range(tgt_sentence_length):
-    dummy_batch = model(
-        src_batch,
-        torch.argmax(dummy_batch, dim=2)
-    )
-outputs = dummy_batch
 
 ```
